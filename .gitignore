@@ -1,6 +1,6 @@
 .csv
 .DS_Store
-subject/
+subject
 
 # Environments
 .env
