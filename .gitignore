@@ -1,6 +1,7 @@
 .csv
 .DS_Store
 subject
+.ipynb_checkpoints/
 
 # Environments
 .env

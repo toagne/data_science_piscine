@@ -9,9 +9,9 @@ def calculate_n_of_duplicates(cursor):
                     )
                     SELECT SUM(cnt) - COUNT(*) AS extra_rows
                     FROM grp""")
-    if type(cursor.fetchone()[0]).__name__ == 'NoneType':
-        return 0
-    return cursor.fetchone()[0]
+    res = cursor.fetchone()
+    n_of_dups = res[0] or 0
+    return n_of_dups
 
 def create_new_table_without_duplicates(cursor):
     cursor.execute("""CREATE TABLE temp AS SELECT DISTINCT * from customers""")

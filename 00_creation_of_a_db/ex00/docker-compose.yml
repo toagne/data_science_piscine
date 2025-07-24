@@ -1,6 +1,7 @@
 services:
   db:
     image: postgres
+    container_name: postgres
     restart: always
     environment:
       POSTGRES_USER: mpellegr
@@ -10,6 +11,11 @@ services:
       - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
+    command: >
+      postgres
+      -c max_wal_size=4GB
+      -c checkpoint_timeout=30min
+      -c checkpoint_completion_target=0.9
 
 volumes:
   pgdata:
